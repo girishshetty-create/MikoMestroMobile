@@ -1,0 +1,28 @@
+appId: com.miko3.app
+---
+- launchApp:
+    clearState: false
+
+- assertVisible: Parents Zone
+- tapOn: Parents Zone
+
+- inputText: "1111"
+- tapOn:
+   id: id_app_bar_profile
+- scrollUntilVisible:
+    element:
+      id: id_settings_other_0
+- tapOn: 
+   id: id_settings_other_0
+- tapOn:
+    id: passcode_1
+- inputText: "3333"
+- tapOn:
+    id: passcode_2
+- inputText: "3333"
+- tapOn:
+    id: id_setPasscode
+
+
+- tapOn: Back
+

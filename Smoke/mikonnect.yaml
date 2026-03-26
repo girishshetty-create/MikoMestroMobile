@@ -1,0 +1,19 @@
+appId: com.miko3.app
+---
+- launchApp:
+    clearState: false
+
+- tapOn: Video Call to Miko
+- tapOn: "0"
+- tapOn: "0"
+- tapOn: "0"
+- tapOn: "0"
+#- assertVisible: Miko3 - M3EF9F911
+
+#- assertVisible: Miko Mini - M4N0FA0C91
+- assertVisible: All Calls
+- assertVisible: Video call Miko
+
+- tapOn: Video call Miko
+- assertVisible: Your child's Miko
+- stopApp

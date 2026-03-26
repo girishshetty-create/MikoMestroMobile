@@ -1,0 +1,25 @@
+appId: com.miko3.app
+---
+- runFlow:
+    file: "1MINUTEINAMUSEUM.yaml"
+    optional: true
+
+- runFlow:
+    file: "BoxXam.yaml"
+    optional: true
+
+- runFlow:
+    file: "briko.yaml"
+    optional: true
+
+- runFlow:
+    file: "kosmix.yaml"
+    optional: true
+
+- runFlow:
+    file: "CraftyArt.yaml"
+    optional: true
+
+- runFlow:
+    file: "DaviniciShow.yaml"
+    optional: true

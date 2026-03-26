@@ -1,0 +1,13 @@
+appId: com.miko3.app
+---
+- launchApp:
+    clearState: False
+
+- openLink: "https://mikoai.app.link/talent_kosmix"
+
+- tapOn:
+    text: "Open" # Taps the Play Store "Open" button
+    optional: true # Won't fail if Play Store doesn't appear
+
+- assertVisible: KOSMIX - SEASON 1
+- stopApp

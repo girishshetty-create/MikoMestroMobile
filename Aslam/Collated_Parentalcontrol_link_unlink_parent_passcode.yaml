@@ -1,0 +1,204 @@
+appId: com.miko3.app
+---
+- launchApp:
+    clearState: false
+- tapOn: Parents Zone
+
+- inputText: "2222"
+#open settings page
+- tapOn:
+    id: id_app_bar_profile
+#Manage screen time -->Lock Apps
+- scrollUntilVisible:
+    element:
+      id: id_parental_control_app_access
+- tapOn:
+    id: id_parental_control_app_access
+- tapOn: Select shows,games etc #tap on search bar
+- inputText: "disney stories"
+- tapOn: 
+    point: 85%,88% #Tap on rightmark on mobile keypad
+- tapOn: Lock talent switch icon
+- tapOn:
+    id: id_yesLockTalent
+- tapOn:
+    id: back
+#Manage screen time -->Lock Kidzone
+- scrollUntilVisible:
+    element:
+      id: id_parental_control_lock_kids_zone
+
+- tapOn:
+    id: id_parental_control_lock_kids_zone
+- tapOn:
+    id: app_lock_main_switch
+- tapOn:
+    id: id_app_lock_confirm
+- tapOn:
+    id: back
+#Manage screen time -->break reminder
+- scrollUntilVisible:
+    element:
+      id: id_parental_control_manage_screen_time
+
+- tapOn:
+    id: id_parental_control_manage_screen_time
+- tapOn:
+    id: id_manage_usage_break_reminder
+- tapOn:
+    id: break_time_switch
+- tapOn:
+    id: id_kids_usage_confirm
+- tapOn:
+    id: id_save
+- tapOn:
+    id: back  
+#Manage screen time -->Daily usage
+- scrollUntilVisible:
+    element:
+      id: id_parental_control_manage_screen_time
+- tapOn:
+    id: id_parental_control_manage_screen_time
+- tapOn:
+    id: id_manage_usage_daily_usage
+- tapOn:
+    id: id_manage_daily_usage_switch
+- tapOn:
+    id: id_saveChanges
+- tapOn:
+    id: back
+
+#Bedtime schedule
+- scrollUntilVisible:
+    element:
+      id: id_parental_control_bedtime_schedule
+
+- tapOn:
+    id: id_parental_control_bedtime_schedule
+
+- tapOn:
+    id: kids_usage_bedtime_switch
+- tapOn: Confirm
+- tapOn:
+    id: id_saveChanges
+- tapOn:
+    id: back
+#Link new miko 
+- scrollUntilVisible:
+    element:
+      text: Link New Miko
+- tapOn: Link New Miko
+#Link Miko 3 
+- tapOn:
+    id: id_miko_3 
+- tapOn:
+    id: id_turnOnMikoIsOn
+
+- tapOn:
+    id: id_wifiIsConnected
+- tapOn:
+    id: miko3_bot_code_input
+- inputText: Q21P2H #pairing code taken from Bot
+- tapOn:
+    id: id_pairWithMiko
+- tapOn: Let’s start
+#Add child details 
+- tapOn:
+    id: id_childNameQuestion
+- inputText: Virat
+- tapOn:
+    id: id_child_dob
+- tapOn: 25, Tuesday, February 25, 2025
+- tapOn: |-
+    Select year
+    February 2025
+- tapOn: "2020"
+- tapOn: OK
+- tapOn:
+    id: id_child_gender
+- tapOn: Other
+- tapOn:
+    id: id_share_excitement
+- inputText: Viratkohli 1818
+- tapOn:
+    id: 0_resource_name_obfuscated
+    index: 51
+- tapOn:
+    id: id_selectChildInterestss
+- tapOn: Dancing
+- tapOn: Drawing & Coloring
+- tapOn: Save Interests
+- tapOn: Confirm & Continue
+- tapOn: Confirm
+- tapOn: Got it
+# intermediate screen
+- tapOn: Parents Zone
+- inputText: "2222"
+#open settings page
+- tapOn:
+    id: id_app_bar_profile
+#Link Miko Mini 
+- scrollUntilVisible:
+    element:
+      text: Link New Miko
+- tapOn: Link New Miko
+- tapOn:
+    id: id_miko_mini
+   #make sure  your mobile bluetooth is ON--> manually enable 
+- tapOn: Next
+- tapOn: Miko is On Now
+- tapOn:
+    id: permission_allow_one_time_button # enable wifi 
+- tapOn: Proceed to Pairing # From here mini bot id is displayed which can't be automate so from this screen will exit to main screen
+- tapOn:
+    id: back
+- tapOn:
+    id: back
+- tapOn:
+    id: back
+- tapOn:
+    id: back
+- tapOn:
+    id: back
+- tapOn:
+    id: id_app_bar_profile
+
+    #Unlink miko functionality
+- scrollUntilVisible:
+    element:
+      id: id_more_settings
+- tapOn:
+    id: id_more_settings #Tap on more button where switch child profile and unlink options available
+- tapOn:
+    id: id_more_unlink_miko #tap on unlink miko option
+- tapOn:
+    id: id_proceedButtonText # Are you sure you want to unlink screen
+- tapOn: Gifting my Miko # sad to see you go screen
+- tapOn: Proceed
+- tapOn:
+    id: id_proceedButtonText
+- tapOn: Proceed to unlink #You have an active max subscr. screen 
+- tapOn: unlink_otp_input
+- inputText: "123456" #Verification code 
+- tapOn:
+    id: back
+- tapOn:
+    id: back
+- tapOn:
+    id: back # main settings page
+# change parental passcode functionality
+- scrollUntilVisible:
+    element:
+      id: id_settings_other_0
+- tapOn: 
+   id: id_settings_other_0
+- tapOn:
+    id: passcode_1
+- inputText: "3333"
+- tapOn:
+    id: passcode_2
+- inputText: "3333"
+- tapOn:
+    id: id_setPasscode
+- tapOn:
+    id: back

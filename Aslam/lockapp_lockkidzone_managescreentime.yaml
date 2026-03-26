@@ -1,0 +1,70 @@
+appId: com.miko3.app
+---
+- launchApp:
+    clearState: false
+- tapOn: Parents Zone
+
+- inputText: "2222"
+
+- tapOn:
+    id: id_app_bar_profile
+
+- scrollUntilVisible:
+    element:
+      id: id_parental_control_app_access
+- tapOn:
+    id: id_parental_control_app_access
+- tapOn: Select shows,games etc
+- inputText: "disney stories"
+- tapOn:
+    point: 85%,88%
+- tapOn: Lock talent switch icon
+- tapOn:
+    id: id_yesLockTalent
+- tapOn:
+    id: back
+- scrollUntilVisible:
+    element:
+      id: id_parental_control_lock_kids_zone
+
+- tapOn:
+    id: id_parental_control_lock_kids_zone
+- tapOn:
+    id: app_lock_main_switch
+- tapOn:
+    id: id_app_lock_confirm
+- tapOn:
+    id: back
+
+- scrollUntilVisible:
+    element:
+      id: id_parental_control_manage_screen_time
+
+- tapOn:
+    id: id_parental_control_manage_screen_time
+- tapOn:
+    id: id_manage_usage_break_reminder
+- tapOn:
+    id: break_time_switch
+- tapOn:
+    id: id_kids_usage_confirm
+- tapOn:
+    id: id_save
+- tapOn:
+    id: back  
+- scrollUntilVisible:
+    element:
+      id: id_parental_control_manage_screen_time
+- tapOn:
+    id: id_parental_control_manage_screen_time
+- tapOn:
+    id: id_manage_usage_daily_usage
+- tapOn:
+    id: id_manage_daily_usage_switch
+- tapOn:
+    id: id_saveChanges
+- tapOn:
+    id: back
+
+
+

@@ -1,0 +1,27 @@
+appId: com.miko3.app
+---
+- launchApp:
+    clearState: false
+- tapOn: Parents Zone
+- tapOn:
+    point: 19%,33%
+- inputText: 0000
+- assertVisible:
+    id: id_app_bar_profile
+
+- tapOn:
+    id: id_app_bar_profile
+- scrollUntilVisible:
+    element:
+      id: id_parental_control_bedtime_schedule
+
+- tapOn:
+    id: id_parental_control_bedtime_schedule
+
+- tapOn:
+    id: kids_usage_bedtime_switch
+- tapOn: Confirm
+- tapOn:
+    id: id_saveChanges
+- tapOn:
+    id: back

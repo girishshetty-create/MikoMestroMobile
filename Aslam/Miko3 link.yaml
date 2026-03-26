@@ -1,0 +1,64 @@
+appId: com.miko3.app
+---
+- launchApp:
+    clearState: false
+- tapOn: Parents Zone
+- tapOn:
+    point: 19%,33%
+- inputText: 3333
+- assertVisible:
+    id: id_app_bar_profile
+
+- tapOn:
+    id: id_app_bar_profile
+- tapOn:
+    id: id_child_botCode
+
+- tapOn: Link New Miko
+- tapOn:
+    id: id_miko_3
+- tapOn:
+    id: id_turnOnMikoIsOn
+
+- tapOn:
+    id: id_wifiIsConnected
+- tapOn:
+    id: miko3_bot_code_input
+- inputText: Q21P2H
+- tapOn:
+    id: id_pairWithMiko
+- tapOn: Let’s start
+- tapOn:
+    id: id_childNameQuestion
+- inputText: Virat
+- tapOn:
+    id: id_child_dob
+- tapOn: 25, Tuesday, February 25, 2025
+- tapOn: |-
+    Select year
+    February 2025
+- tapOn: "2020"
+- tapOn: OK
+- tapOn:
+    id: id_child_gender
+- tapOn: Other
+- tapOn:
+    id: id_share_excitement
+- inputText: Viratkohli 1818
+- tapOn:
+    id: 0_resource_name_obfuscated
+    index: 51
+
+- tapOn:
+    id: id_selectChildInterestss
+- tapOn: Dancing
+- tapOn: Drawing & Coloring
+- tapOn: Save Interests
+- tapOn: Confirm & Continue
+- tapOn: Confirm
+- tapOn: Got it
+
+
+
+
+

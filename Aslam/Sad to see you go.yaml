@@ -1,0 +1,25 @@
+appId: com.miko3.app
+---
+- launchApp:
+    clearState: false
+- assertVisible: Parents Zone
+- tapOn: Parents Zone
+- inputText: "3333"
+- tapOn:
+    id: id_app_bar_profile
+- scrollUntilVisible:
+    element:
+      id: id_more_settings
+- tapOn:
+    id: id_more_settings
+- tapOn:
+    id: id_more_unlink_miko
+- tapOn:
+    id: id_proceedButtonText
+- tapOn: Gifting my Miko
+- tapOn: Proceed
+- tapOn:
+    id: id_proceedButtonText
+- tapOn: Proceed to unlink
+- tapOn: unlink_otp_input
+- inputText: "123456"

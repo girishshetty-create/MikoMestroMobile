@@ -1,0 +1,5 @@
+appId: com.miko3.app
+---
+- launchApp:
+    clearState: true
+- stopApp

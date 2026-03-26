@@ -1,0 +1,22 @@
+appId: com.miko3.app
+---
+- launchApp:
+    clearState: False
+
+- tapOn: Parents Zone
+- tapOn: "0"
+- tapOn: "0"
+- tapOn: "0"
+- tapOn: "0"
+
+- assertVisible:
+    id: id_app_bar_profile
+
+- doubleTapOn:
+    id: id_parentProfile
+    delay: 100
+
+- doubleTapOn:
+    id: id_manageParentProfile
+    delay: 100
+- assertVisible: jdfjf

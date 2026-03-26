@@ -1,0 +1,36 @@
+appId: com.miko3.app
+---
+- launchApp:
+    clearState: false
+    #Enter Passscode
+- tapOn:
+    id: id_parents_zone
+- tapOn:
+    id: id_enter_password
+
+- tapOn: "0"
+- tapOn: "0"
+- tapOn: "0"
+- tapOn: "0"
+
+- longPressOn:
+    id: id_top_menu_settings
+
+- scrollUntilVisible:
+    element:
+      id: id_parental_control_child_profile
+
+- doubleTapOn:
+    id: id_parental_control_child_profile
+    delay: 100
+
+- doubleTapOn:
+    id: id_childname
+    delay: 100
+
+- inputText: Hello
+
+- assertVisible: Save
+- tapOn: Save
+
+- stopApp

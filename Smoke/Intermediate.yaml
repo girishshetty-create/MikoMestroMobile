@@ -1,0 +1,12 @@
+appId: com.miko3.app
+---
+- launchApp
+- waitForAnimationToEnd
+
+- assertVisible: Let’s Play
+- doubleTapOn: Let’s Play
+
+- assertVisible:
+    text: "Your Favorites"
+
+- stopApp

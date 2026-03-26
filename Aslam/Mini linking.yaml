@@ -1,0 +1,25 @@
+appId: com.miko3.app
+---
+- launchApp:
+    clearState: false
+- tapOn: Parents Zone
+- tapOn:
+    text: "|"
+    index: 18
+- inputText: 2222
+- tapOn:
+    id: id_app_bar_profile
+- scrollUntilVisible:
+    element:
+      text: Link New Miko
+- tapOn: Link New Miko
+- tapOn:
+    id: id_miko_mini
+- tapOn: Next
+- tapOn: Miko is On Now
+- tapOn:
+    id: permission_allow_one_time_button
+- tapOn: Proceed to Pairing
+
+
+

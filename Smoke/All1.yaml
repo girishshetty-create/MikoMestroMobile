@@ -1,0 +1,30 @@
+appId: com.miko3.app
+---
+- runFlow:
+    file: "LoginBeta.yaml"
+    optional: true
+
+- runFlow:
+    file: "Child Profile.yaml"
+    optional: true
+- runFlow:
+    file: "CityDUNK.yaml"
+    optional: true
+    
+- runFlow:
+    file: "Intermediate.yaml"
+    optional: true
+- runFlow:
+    file: "mikonnect.yaml"
+    optional: true
+- runFlow:
+    file: "Story Maker.yaml"
+    optional: true
+
+- runFlow:
+    file: "Subcription.yaml"
+    optional: true
+- runFlow:
+    file: "LoginBeta.yaml"
+    optional: true
+

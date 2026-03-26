@@ -1,0 +1,36 @@
+appId: com.miko3.app
+---
+- launchApp:
+    clearState: false
+    onFailure:
+      - takeScreenshot: "FAIL_launchApp"
+      - logMessage: "FAILED - launchApp"
+
+- openLink: "https://mikoai.app.link/talent_briko"
+  onFailure:
+    - takeScreenshot: "FAIL_openLink"
+    - logMessage: "FAILED - openLink"
+
+- waitForAnimationToEnd
+  onFailure:
+    - takeScreenshot: "FAIL_waitForAnimationToEnd_1"
+    - logMessage: "FAILED - waitForAnimationToEnd (before tapOn)"
+
+- tapOn:
+    text: "Open"
+    optional: true
+      onFailure:
+       - takeScreenshot: "FAIL_tapOn_Open"
+       - logMessage: "FAILED - tapOn Open button"
+
+- waitForAnimationToEnd
+  onFailure:
+    - takeScreenshot: "FAIL_waitForAnimationToEnd_2"
+    - logMessage: "FAILED - waitForAnimationToEnd (after tapOn)"
+
+- assertVisible: BRIKO
+  onFailure:
+    - takeScreenshot: "FAIL_assertVisible_BRIKO"
+    - logMessage: "FAILED - assertVisible BRIKO"
+
+  - stopApp
