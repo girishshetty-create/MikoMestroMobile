@@ -1,0 +1,25 @@
+appId: com.miko3.app
+---
+- launchApp:
+    clearState: false
+
+- openLink: https://mikoai.app.link/talent_darwin_newts
+
+- waitForAnimationToEnd
+
+- tapOn:
+    text: "Open" # Taps the Play Store "Open" button
+    optional: true # Won't fail if Play Store doesn't appear
+
+- waitForAnimationToEnd
+- assertVisible: DARWIN & NEWTS - SEASON 1
+# - takeScreenshot: Darwin & Newts
+# - assertScreenshot:
+#     path: Darwin & Newts.png
+#     thresholdPercentage: 50
+
+- doubleTapOn:
+    point: 6%,10%
+
+#- assertVisible: PLAY
+- stopApp

@@ -1,0 +1,23 @@
+appId: com.miko3.app
+---
+- launchApp:
+    clearState: false
+
+- openLink: "https://mikoai.app.link/talent_connect4"
+
+- waitForAnimationToEnd
+
+- tapOn:
+    text: "Open"
+    optional: true
+
+- waitForAnimationToEnd
+# - takeScreenshot: Connect_4
+- assertScreenshot:
+    path: Connect_4.png
+    thresholdPercentage: 50
+
+- doubleTapOn:
+    point: 6%,10%
+
+- stopApp

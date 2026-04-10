@@ -1,0 +1,23 @@
+appId: com.miko3.app
+---
+- launchApp:
+    clearState: false
+
+- openLink: "https://mikoai.app.link/talent_kids_tangram"
+
+- waitForAnimationToEnd
+
+- tapOn:
+    text: "Open"
+    optional: true
+
+- waitForAnimationToEnd
+# - takeScreenshot: Kids_Tangram
+- assertScreenshot:
+    path: Kids_Tangram.png
+    thresholdPercentage: 70
+
+- doubleTapOn:
+    point: 6%,10%
+
+- stopApp

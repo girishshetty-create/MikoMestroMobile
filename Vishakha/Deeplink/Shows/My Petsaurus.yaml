@@ -1,0 +1,26 @@
+appId: com.miko3.app
+---
+- launchApp:
+    clearState: false
+
+- openLink: https://mikoai.app.link/talent_my_petsaurus
+
+- waitForAnimationToEnd
+
+- tapOn:
+    text: "Open" # Taps the Play Store "Open" button
+    optional: true # Won't fail if Play Store doesn't appear
+
+- waitForAnimationToEnd
+- assertVisible: MY PETSAURUS - SEASON 1
+
+# - takeScreenshot: my_petsaurus
+# - assertScreenshot:
+#     path: my_petsaurus.png
+#     thresholdPercentage: 50
+
+- doubleTapOn:
+    point: 6%,10%
+
+#- assertVisible: PLAY
+- stopApp

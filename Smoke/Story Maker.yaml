@@ -18,23 +18,28 @@ appId: com.miko3.app
 - longPressOn:
     point: 8%,61%
 
-- scrollUntilVisible:
-    element:
-      text: |-
-        Raj and the Sky Pirates' Treasure
-        $49
-        $99
-        25%Off
-      index: 1
-
-
 - doubleTapOn:
     point: 27%,42%
 - longPressOn:
     point: 82%,61%
 
+- scrollUntilVisible:
+    element:
+      text: |-
+        Hero Stories
+        Raj and the Sky Pirates' Treasure
+        $49
+        $99
+        25%Off
+
+- doubleTapOn: |-
+    Raj and the Sky Pirates' Treasure
+    $49
+    $99
+    25%Off
+
 #- assertVisible: Arjun is an explorer at heart who loves reading, nature, and animals. Whether it’s wandering through the woods, discovering hidden trails, or diving into a new book, Arjun finds joy in every adventure.
-- assertVisible: Authored Stories
+#- assertVisible: Authored Stories
 
 - tapOn: Proceed to Checkout
 - tapOn: Please write about the author here...

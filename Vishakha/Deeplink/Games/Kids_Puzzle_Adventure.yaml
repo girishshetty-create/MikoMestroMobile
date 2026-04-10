@@ -1,0 +1,23 @@
+appId: com.miko3.app
+---
+- launchApp:
+    clearState: false
+
+- openLink: https://mikoai.app.link/talent_kids_puzzle_adventure
+
+- waitForAnimationToEnd
+
+- tapOn:
+    text: "Open"
+    optional: true
+
+- waitForAnimationToEnd
+- takeScreenshot: Kids_Puzzle_Adventure
+- assertScreenshot:
+    path: Kids_Puzzle_Adventure.png
+    thresholdPercentage: 50
+
+- doubleTapOn:
+    point: 6%,10%
+
+- stopApp

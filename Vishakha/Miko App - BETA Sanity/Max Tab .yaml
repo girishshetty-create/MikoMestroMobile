@@ -1,0 +1,61 @@
+appId: com.miko3.app
+---
+- launchApp:
+    clearState: false
+#Sanity Case- Test to verify tapping on Parentzone of the Intermediate Screen
+- tapOn:
+    id: id_parents_zone
+- tapOn:
+    id: id_enter_password
+- inputText: 1111
+- tapOn:
+    id: id_bottom_nav_max
+  #Sanity Case- Test to verify New skill gained by Childname functionality
+# - scrollUntilVisible:
+#     element:
+#       text: Power Zone
+- scrollUntilVisible:
+    element:
+      text: LEVEL UP
+- tapOn: See new skills gained by  Kaki #when child does have reporting data
+# - tapOn: 500+ kids gained skills using MAX #when child doesn't have reporting data
+- tapOn: |-
+    Max
+    Tab 2 of 5
+#Sanity Case - Test to verify if the Skill Categories are tapable - MAx user
+# - scrollUntilVisible:
+#     element:
+#       text: Power Zone
+# - tapOn: Language
+# - tapOn: Socio Emotional
+#Sanity Case - Test to verify if the Skill Categories are tapable - Max Nodata user
+- scrollUntilVisible:
+    element:
+      text: LEVEL UP
+- tapOn: Language
+#Regression case - Test to verify the FAQ's Functionality
+- scrollUntilVisible:
+    element:
+      text: Can I use one MAX subscription for multiple Miko devices?
+    direction: DOWN
+    timeout: 20000
+- tapOn: What is the Miko MAX subscription?
+- tapOn: Can I use one MAX subscription for multiple Miko devices?
+- scrollUntilVisible:
+    element:
+      text: 125K+ Children
+- tapOn: Is Miko MAX subscription required to use Miko?
+- tapOn: Is Miko MAX a subscription plan or a one-time purchase?
+- tapOn: Which subscription plans are available for Miko MAX?
+- scrollUntilVisible:
+    element:
+      text: "Do I need to choose apps for my Miko MAX plan?"
+    direction: DOWN
+    timeout: 10000
+- tapOn: Do I need to choose apps for my Miko MAX plan?
+- scrollUntilVisible:
+    element:
+      text: "How do I subscribe to MAX from the Miko app?"
+    direction: DOWN
+    timeout: 10000
+- tapOn: How do I subscribe to MAX from the Miko app?

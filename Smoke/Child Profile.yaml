@@ -15,14 +15,22 @@ appId: com.miko3.app
 
 - longPressOn:
     id: id_top_menu_settings
+    
+
 
 - scrollUntilVisible:
     element:
       id: id_parental_control_child_profile
 
+- assertVisible:
+    id: id_parental_control_child_profile
+
+
 - doubleTapOn:
     id: id_parental_control_child_profile
     delay: 100
+
+
 
 - doubleTapOn:
     id: id_childname

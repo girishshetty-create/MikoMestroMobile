@@ -1,0 +1,57 @@
+appId: com.miko3.app
+---
+- runFlow:
+    file: "LoginBeta.yaml"
+    optional: true
+
+- runFlow:
+    file: "App Launch and login.yaml"
+    optional: true
+
+- runFlow:
+    file: "Child Profile.yaml"
+    optional: true
+
+- runFlow:
+    file: "All Miko Content.yaml"
+    optional: true
+
+- runFlow:
+    file: "Explore and Blogs.yaml"
+    optional: true
+
+- runFlow:
+    file: "Homepage Banner and checklist.yaml"
+    optional: true
+
+- runFlow:
+    file: "Manage WIFI.yaml"
+    optional: true
+
+- runFlow:
+    file: "Max Tab .yaml"
+    optional: true
+
+- runFlow:
+    file: "Max tab with Data.yaml"
+    optional: true
+
+- runFlow:
+    file: "ProfileandTuneListeningMiko.yaml"
+    optional: true
+
+- runFlow:
+    file: "Set Alarm.yaml"
+    optional: true
+
+- runFlow:
+    file: "Set Location.yaml"
+    optional: true
+
+- runFlow:
+    file: "ShareappNeedHelpRateus.yaml"
+    optional: true
+
+- runFlow:
+    file: "Sheild.yaml"
+    optional: true

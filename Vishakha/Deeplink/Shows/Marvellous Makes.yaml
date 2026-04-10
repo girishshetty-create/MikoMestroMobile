@@ -1,0 +1,26 @@
+appId: com.miko3.app
+---
+- launchApp:
+    clearState: false
+
+- openLink: https://mikoai.app.link/talent_marvellous_makes
+
+- waitForAnimationToEnd
+
+- tapOn:
+    text: "Open" # Taps the Play Store "Open" button
+    optional: true # Won't fail if Play Store doesn't appear
+
+- waitForAnimationToEnd
+- assertVisible: MARVELLOUS MAKES LAB - SEASON 1
+
+# - takeScreenshot: marvellous_makes
+# - assertScreenshot:
+#     path: marvellous_makes.png
+#     thresholdPercentage: 50
+
+- doubleTapOn:
+    point: 6%,10%
+
+#- assertVisible: PLAY
+- stopApp

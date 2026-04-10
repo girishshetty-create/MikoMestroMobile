@@ -1,0 +1,24 @@
+appId: com.miko3.app
+---
+- launchApp:
+    clearState: false
+
+- openLink: "https://mikoai.app.link/talent_artwist"
+
+- waitForAnimationToEnd
+
+- tapOn:
+    text: "Open" # Taps the Play Store "Open" button
+    optional: true # Won't fail if Play Store doesn't appear
+
+- waitForAnimationToEnd
+# - takeScreenshot: Artwist
+- assertScreenshot:
+    path: Artwist.png
+    thresholdPercentage: 70
+
+- doubleTapOn:
+    point: 6%,10%
+
+#- assertVisible: PLAY
+- stopApp

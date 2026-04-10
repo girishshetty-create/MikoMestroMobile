@@ -1,0 +1,23 @@
+appId: com.miko3.app
+---
+- launchApp:
+    clearState: false
+
+- openLink: "https://mikoai.app.link/talent_oomee_pinata"
+
+- waitForAnimationToEnd
+
+- tapOn:
+    text: "Open"
+    optional: true
+
+- waitForAnimationToEnd
+- takeScreenshot: Oomee_Pinata
+- assertScreenshot:
+    path: Oomee_Pinata.png
+    thresholdPercentage: 50
+
+- doubleTapOn:
+    point: 6%,10%
+
+- stopApp

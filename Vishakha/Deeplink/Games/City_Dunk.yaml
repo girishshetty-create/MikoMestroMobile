@@ -1,0 +1,23 @@
+appId: com.miko3.app
+---
+- launchApp:
+    clearState: false
+
+- openLink: "https://mikoai.app.link/talent_city_dunk"
+
+- waitForAnimationToEnd
+
+- tapOn:
+    text: "Open"
+    optional: true
+
+- waitForAnimationToEnd
+# - takeScreenshot: City_Dunk
+- assertScreenshot:
+    path: City_Dunk.png
+    thresholdPercentage: 70
+
+- doubleTapOn:
+    point: 6%,10%
+
+- stopApp
