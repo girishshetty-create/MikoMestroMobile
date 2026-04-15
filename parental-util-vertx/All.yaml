@@ -1,0 +1,29 @@
+appId: com.miko3.app
+---
+
+- runFlow:
+    file: "USAFlow.yaml"
+    optional: true
+
+- runFlow:
+    file: "FirsttimeSubUSA.yaml"
+    optional: true
+
+
+
+- runFlow:
+    file: "IndiaMax.yaml"
+    optional: true
+
+- runFlow:
+    file: "FristSubIndi.yaml"
+    optional: true
+
+- runFlow:
+    file: "ROWSub.yaml"
+    optional: true        
+
+
+- runFlow:
+    file: "ROWSub.yaml"
+    optional: true        

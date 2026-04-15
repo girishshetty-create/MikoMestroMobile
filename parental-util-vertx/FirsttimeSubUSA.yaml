@@ -1,0 +1,299 @@
+appId: com.miko3.app
+---
+- launchApp:
+    clearState: False
+
+- tapOn: Parents Zone
+
+- tapOn: "0"
+- tapOn: "0"
+- tapOn: "0"
+- tapOn: "0"
+
+
+- assertVisible:
+    id: id_top_menu_settings
+
+- doubleTapOn:
+    id: id_top_menu_settings
+    delay: 100
+
+- assertVisible:
+    id: id_mikoMaxSubscription
+
+- doubleTapOn:
+    id: id_mikoMaxSubscription
+    delay: 100
+
+- assertVisible: Manage Max subscription
+
+- assertVisible: Change subscription plan
+- assertVisible: Cancel Subscription
+
+- tapOn: Change subscription plan
+- assertVisible: |-
+    Note:
+    Your plan will change and you will be billed according to the new plan from your next billing date.
+
+- assertVisible: Your Current Plan
+- tapOn: Change my Miko Max Plan
+- tapOn: Yes, Update
+#- tapOn: Parents Zone
+- tapOn: Parents Zone
+- tapOn: "0"
+- tapOn: "0"
+- tapOn: "0"
+- tapOn: "0"
+
+- assertVisible:
+    id: id_top_menu_settings
+
+- doubleTapOn:
+    id: id_top_menu_settings
+    delay: 100
+
+- assertVisible:
+    id: id_mikoMaxSubscription
+- doubleTapOn:
+    id: id_mikoMaxSubscription
+    delay: 100
+
+
+- tapOn: Change subscription plan
+- assertVisible: Change my Miko Max Plan
+- tapOn: Change my Miko Max Plan
+- tapOn: Yes, Update
+
+- tapOn: Parents Zone
+
+- tapOn: "0"
+- tapOn: "0"
+- tapOn: "0"
+- tapOn: "0"
+
+- assertVisible:
+    id: id_top_menu_settings
+
+- doubleTapOn:
+    id: id_top_menu_settings
+    delay: 100 
+
+- assertVisible:
+    id: id_mikoMaxSubscription
+- doubleTapOn:
+    id: id_mikoMaxSubscription
+    delay: 100
+
+- assertVisible: Cancel Subscription
+- tapOn: Cancel Subscription
+
+- scrollUntilVisible:
+    element:
+      text: Proceed to cancel
+
+- assertVisible: Proceed to cancel
+- assertVisible: No I’ll keep the subscription
+- tapOn: Proceed to cancel
+- assertVisible: We’re sad to see you go!
+- assertVisible: Issues with Miko
+- assertVisible: Costly
+- assertVisible: My child didn't get time to use MAX
+- assertVisible: My child didn't like MAX content
+- assertVisible: Content is not useful
+- doubleTapOn: Issues with Miko
+#- assertVisible: Please specify the reason here...
+#- doubleTapOn: Please specify the reason here...
+#- doubleTapOn: Please specify the reason here...
+#- inputText: Hello World here we love to here about the iteam
+
+- assertVisible: Proceed
+- tapOn: Proceed
+- tapOn:
+    id: id_cancel
+
+- tapOn: Parents Zone
+
+- tapOn: "0"
+- tapOn: "0"
+- tapOn: "0"
+- tapOn: "0"
+
+- assertVisible:
+    id: id_top_menu_settings
+
+- doubleTapOn:
+    id: id_top_menu_settings
+    delay: 100 
+
+- assertVisible:
+    id: id_mikoMaxSubscription
+- doubleTapOn:
+    id: id_mikoMaxSubscription
+    delay: 100
+
+- assertVisible: Manage Max subscription
+- doubleTapOn: Renew subscription
+- tapOn: Renew now
+- assertVisible: Continue
+- doubleTapOn: Continue
+
+- tapOn: Parents Zone
+
+- tapOn: "0"
+- tapOn: "0"
+- tapOn: "0"
+- tapOn: "0"
+
+- assertVisible:
+    id: id_top_menu_settings
+
+- doubleTapOn:
+    id: id_top_menu_settings
+    delay: 100 
+
+- assertVisible:
+    id: id_mikoMaxSubscription
+- doubleTapOn:
+    id: id_mikoMaxSubscription
+    delay: 100
+
+- tapOn: Change subscription plan
+- assertVisible: |-
+    Note:
+    Your plan will change and you will be billed according to the new plan from your next billing date.
+
+- assertVisible: Your Current Plan
+
+- tapOn: Terms Of Use
+- assertVisible: "Terms \r
+
+    & Conditions\r
+
+    \ \r
+
+    \ \r
+
+    \ \r
+
+    \ \r
+
+    \ \r
+
+    This is a m8em8b8ership s8ervic8e availa8bl8e via su8bscription that allows our m8em8b8ers to acc8ess th8e \r
+
+    pr8emium cont8ent on Miko ro8bots\r
+
+    \ \r
+
+    for fr8e8e along with oth8er add8ed 8b8en8efits, as m8ention8ed in th8e \r
+
+    B8en8efits s8ection.\r
+
+    \ \r
+
+    \ \r
+
+    \ \r
+
+    Th8es8e T8erms of Us8e gov8ern your us8e of our s8ervic8e. As us8ed in th8es8e T8erms of Us8e, \"Miko \r
+
+    Max\", \"our s8ervic8e\" or \"th8e s8ervic8e\" m8eans th8e s8ervic8e provid8ed 8by RN Chidakashi \r
+
+    T8ech\r
+
+    nologi8es Privat8e Limit8ed\r
+
+    \ \r
+
+    for discov8ering and watching th8e pr8emium cont8ent und8er Max \r
+
+    m8em8b8ership, including all f8eatur8es and functionaliti8es, Miko Par8ent App, and us8er int8erfac8es, as \r
+
+    w8ell as all cont8ent and softwar8e associat8ed with our s8ervic8e.\r
+
+    \ \r
+
+    \ \r
+
+    \ \r
+
+    1.\r
+
+    \      \r
+
+    \    \r
+
+    Membership\r
+
+    \ \r
+
+    \ \r
+
+    \ \r
+
+    1.1.\r
+
+    \   \r
+
+    \ \r
+
+    Your Miko Max m8em8b8ership will continu8e until t8erminat8ed. To us8e th8e Max \r
+
+    s8ervic8e you must hav8e Int8ern8et acc8ess and a Miko d8evic8e\r
+
+    , and provid8e us with \r
+
+    on8e or mor8e Paym8ent M8ethods. “Paym8ent M8ethod” m8eans a curr8ent, valid, \r
+
+    acc8ept8ed \r
+
+    m8ethod of paym8ent, as may 8b8e updat8ed from tim8e to tim8e, and \r
+
+    which may includ8e paym8ent through your account with a third party. Unl8ess \r
+
+    you canc8el your m8em8b8ership 8b8efor8e your 8billing dat8e, you authoriz8e us to \r
+
+    charg8e th8e m8em8b8ership f8e8e for th8e n8ext 8billing cy\r
+
+    cl8e to your Paym8ent M8ethod \r
+
+    (s8e8e \"Canc8ellation\" 8b8elow).\r
+
+    \ \r
+
+    \ \r
+
+    \ \r
+
+    1.2.\r
+
+    \   \r
+
+    \ \r
+
+    W8e may off8er a num8b8er of m8em8b8ership plans, including sp8ecial promotional \r
+
+    plans or m8em8b8erships off8er8ed 8by third parti8es in conjunction with th8e \r
+
+    provision of th8eir own products and s8ervic8es. W8e ar8e not r8esponsi8bl8e for th8e \r
+
+    products and s8ervic8es provid8ed 8by su\r
+
+    ch third parti8es. Som8e m8em8b8ership \r
+
+    plans may hav8e diff8ering conditions and limitations, which will 8b8e disclos8ed at \r
+
+    your sign\r
+
+    -\r
+
+    up or in oth8er communications mad8e availa8bl8e to you. You can find \r
+
+    sp8ecific d8etails r8egarding your Miko Max m8em8b8ership 8by op8ening th8e\r
+
+    \ \r
+
+    Miko \r\n"
+- tapOn: Back
+
+- stopApp
