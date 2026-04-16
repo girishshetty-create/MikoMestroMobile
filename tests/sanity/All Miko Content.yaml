@@ -1,0 +1,56 @@
+appId: com.miko3.app
+---
+- launchApp:
+    clearState: false
+#Sanity Case- Test to verify tapping on Parentzone of the Intermediate Screen
+- tapOn:
+    id: id_parents_zone
+- tapOn:
+    id: id_enter_password
+- inputText: 1111
+- scrollUntilVisible:
+    element:
+      id: id_home_widget_7
+#Apps
+#test to verify the Apps functionality
+- tapOn:
+    id: id_all_miko_content_0 #text replaced
+#tap on view all functionality of View All
+- tapOn: View All #id Required
+- tapOn: #cordiantor replaced
+    id: id_back_button
+- tapOn: Mini #id Required
+- tapOn: View All
+- tapOn: #cordiantor replaced
+    id: id_back_button
+- tapOn: Miko Kids Zone #id Required
+- tapOn: View All #id Required
+- scrollUntilVisible:
+    element:
+      text: |-
+        iHeart Stories
+        Language
+        Ages 5-10 years
+- tapOn: #cordiantor replaced
+    id: id_back_button
+- tapOn: #cordiantor replaced
+    id: id_back_button
+#Test to verify the Ask Miko functionality
+- tapOn:
+    id: id_all_miko_content_1
+- tapOn: Miko3 Commands #id required
+- tapOn: About Miko 3 #id required
+- tapOn: Back #id required
+- tapOn: Miko Mini Commands #id required
+- tapOn: About Mini #id required
+- tapOn: Back #id required
+- tapOn: View All #id required
+- scrollUntilVisible:
+    element:
+      text: |-
+        Know Your Characters.
+        I know them all!
+- tapOn: #cordiantor replaced
+    id: id_back_button
+- tapOn: #cordiantor replaced
+    id: id_back_button
