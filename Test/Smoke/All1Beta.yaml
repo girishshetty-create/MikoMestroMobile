@@ -1,3 +1,13 @@
+# ============================================================
+# MASTER TEST SUITE: All1Beta
+# Runs all page module test flows in sequence
+# Each flow is optional so one failure doesn't block others
+# ====================================================
+
+
+
+
+
 appId: com.miko3.app
 ---
 - runFlow:
