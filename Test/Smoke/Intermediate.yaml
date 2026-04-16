@@ -1,3 +1,6 @@
+# Verify content of intermedite screen
+
+
 appId: com.miko3.app
 ---
 - launchApp
