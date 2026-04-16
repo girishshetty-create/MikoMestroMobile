@@ -1,0 +1,57 @@
+appId: com.miko3.app
+---
+- launchApp:
+    clearState: false
+- tapOn:
+    id: id_parents_zone
+- tapOn:
+    id: id_enter_password
+- inputText: 1111
+#------------------------Setttings----------------
+#Update Child name
+- tapOn: #tap on Settings. Settings id replaced
+    id: id_top_menu_settings
+- tapOn:
+    id: id_parental_control_child_profile
+#Update the Childname
+- tapOn:
+    id: id_childname
+- eraseText
+- inputText: Vishakha
+- tapOn:
+    id: id_save
+#Update the DOB of Child
+- tapOn:
+    id: id_top_menu_settings
+- tapOn:
+    id: id_parental_control_child_profile
+# - tapOn: 2024-12-04
+- tapOn:
+    id: id_child_dob
+- tapOn: 17, Friday, April 17, 2020
+- tapOn: OK
+- tapOn: Save
+
+#Update the Gender
+- tapOn:
+    id: id_top_menu_settings
+- tapOn:
+    id: id_parental_control_child_profile
+- tapOn:
+    id: id_child_gender
+- tapOn:
+    id: id_child_gender_other
+- tapOn:
+    id: id_save
+#update the Interest
+- tapOn:
+    id: id_top_menu_settings
+- tapOn:
+    id: id_parental_control_child_profile
+- tapOn:
+    id: id_select_child_interests
+- tapOn:
+    id: id_interest_animals
+- tapOn: Save Interests
+- tapOn:
+    id: id_save

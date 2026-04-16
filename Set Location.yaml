@@ -1,0 +1,25 @@
+appId: com.miko3.app
+---
+- launchApp:
+    clearState: false
+- tapOn:
+    id: id_parents_zone
+- tapOn:
+    id: id_enter_password
+- inputText: 1111
+#------------------------Setttings----------------
+- tapOn: #tap on Settings. Settings id replaced
+    id: id_top_menu_settings
+- tapOn: #text replaced
+    id: id_set_location
+# - tapOn:Set location
+- tapOn: Search
+- inputText: Mumbai
+- tapOn:
+    id: id_city_item_0
+- tapOn: Confirm
+- tapOn: #Verify if the location is saved
+    id: id_set_location
+- assertVisible: |-
+    Current Set
+    Mumbai, Maharashtra, India, IN

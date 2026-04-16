@@ -1,0 +1,42 @@
+appId: com.miko3.app
+---
+- launchApp:
+    clearState: false
+#Sanity Case- Test to verify tapping on Parentzone of the Intermediate Screen
+- tapOn:
+    id: id_parents_zone
+- tapOn:
+    id: id_enter_password
+- inputText: 1111
+#Test to verify the Explore options functionality
+- scrollUntilVisible:
+    element:
+      id: id_explore_progress
+#Verify the Progress Functionality by tapping it.
+- tapOn:
+    id: id_explore_progress
+- assertVisible: Skills Acquired
+- tapOn:
+    id: id_bottom_nav_home
+- scrollUntilVisible:
+    element:
+      id: id_explore_progress
+#Verify the Mikonnect explore option Functionality by tapping it.
+- tapOn:
+    id: id_explore_mikonnect
+- assertVisible: Call your Miko
+- tapOn: Back
+# test to verify the Homepage Blogs redirection functionality - Below Script is failing
+# - longPressOn:
+#     id: id_blog_what_is_miko_max
+# - assertVisible: What is Miko Max?
+# - tapOn:
+#     id: id_back_button
+#code not working with id- tapon, doubletap, lognpress
+# - tapOn: What is Miko Max?
+# - assertVisible: What is Miko Max?
+# - tapOn:
+#     id: id_back_button
+# - tapOn: Real Conversations, Just for Kids
+# - tapOn:
+#     id: id_back_button

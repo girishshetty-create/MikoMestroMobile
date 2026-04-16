@@ -1,0 +1,217 @@
+appId: com.miko3.app
+---
+- launchApp:
+    clearState: false
+- tapOn:
+    id: id_parents_zone
+- tapOn:
+    id: id_enter_password
+- inputText: 1111
+- tapOn:
+    id: id_bottom_nav_shield
+- assertVisible: |-
+    Miko Shield
+    Your rules. Their world. Perfectly balanced.
+#AI Conversation
+- tapOn:
+    id: id_shield_ai_conversations
+- assertVisible: |-
+    Manage AI Conversations
+    Please note
+    •   
+    Choose whether your child can have AI-powered conversations with Miko.
+    •   
+    In AI-powered conversations, children can create stories, explore topics like animals, space, oceans, and history, and share ideas through conversation. These interactions are designed with child safety in mind.
+    •   
+    When AI-powered conversations are blocked, your child can still enjoy stories, music, dance, and other guided experiences.
+    •   
+    You can change this setting anytime as your child’s needs grow and change.
+#Test to Verify AI Toggle OFF functionality
+- tapOn:
+    id: id_manage_ai_conversation_toggle
+- assertVisible: Keep AI Conversations OFF
+- tapOn:
+    id: id_manage_ai_conversation_confirm
+#Test to Verify AI Toggle ON functionality
+- tapOn:
+    id: id_manage_ai_conversation_toggle
+- assertVisible: Keep AI Conversations ON
+- tapOn:
+    id: id_manage_ai_conversation_confirm
+- tapOn:
+    id: id_back_button
+#
+#Lock Kidszone
+- tapOn:
+    id: id_shield_lock_kids_zone
+- assertVisible: |-
+    Lock/Unlock all apps
+    This empowers you to secure the Miko Kids Zone on their child's device at any given time by preventing access and promoting responsible use. It provides added control and safety measures.
+- tapOn:
+    id: app_lock_main_switch
+- assertVisible: Lock app
+- tapOn:
+    id: id_app_lock_confirm
+- tapOn:
+    id: id_back_button
+#Block Topics
+- tapOn:
+    id: id_shield_block_topics
+- tapOn:
+    id: id_continue1
+    optional: true
+- assertVisible: Choose Topics You Want to Block
+- tapOn:
+    id: id_topic_block_Political Parties
+- assertVisible: Elections, Party's ideas, Political views
+- tapOn:
+    id: id_topic_block_Religion
+- assertVisible: Meaning,Sacred Texts,Festival,Worship places
+- tapOn:
+    id: id_topic_block_subtopic_Religion_Meaning,Sacred Texts,Festival,Worship places
+- tapOn:
+    id: id_block
+- tapOn:
+    id: id_topic_block_Religion
+- tapOn: Meaning,Sacred Texts,Festival,Worship places
+- tapOn: Yes, Unblock
+- tapOn:
+    id: id_back_button
+#Block Words/Phrases
+- tapOn:
+    id: id_shield_block_wordsphrases
+- tapOn:
+    id: id_continue1
+    optional: true
+- assertVisible: All related terms (plurals & tense variations) will be automatically excluded from your child’s interactions, experiences, and activities with Miko.
+- tapOn:
+    id: id_addword
+- tapOn:
+    id: id_typehere
+- inputText: Tiger
+- tapOn:
+    id: id_add
+- tapOn:
+    id: id_block
+# - doubleTapOn: tiger - Script is failing because it is not tapping on tiger and cross icon requires element
+# - tapOn: Yes, Unblock
+- tapOn:
+    id: id_back_button
+#Apps Access
+- tapOn:
+    id: id_shield_app_access
+- tapOn:
+    id: id_search_bar #tap on search bar
+- inputText: 'disney stories'
+# - tapOn: #Not able to use id as, when we search it still takes id-id_lock_talent_switch_1_minute_in_a_museum
+#     id: id_lock_talent_switch_disney_stories
+- tapOn: Lock talent switch icon
+# - tapOn:
+#     id: id_yesLockTalent
+- tapOn:
+    id: id_search_bar
+- eraseText
+- inputText: 'disney stories'
+- tapOn:
+    id: id_lock_talent_switch_disney_stories
+# - tapOn: #Wrong id
+#     id: id_yesLockTalent
+- tapOn: Yes, unlock talent
+- tapOn:
+    id: id_back_button
+#Manage Screen Time
+- tapOn:
+    id: id_shield_manage_screen_time
+- assertVisible: Manage Screen Time
+- assertVisible: |-
+    Break reminder
+    Remind child to take breaks
+- assertVisible: |-
+    Daily usage
+    Set time limits on daily usage
+- doubleTapOn:
+    id: id_manage_usage_daily_usage
+    delay: 100
+- assertVisible: |-
+    Daily Usage Limit
+    Manage the time your child spends with Miko or the app by setting a limit. Once the limit is reached, usage will automatically pause until the next day.
+    Once saved, restart Miko to apply the changes.
+- longPressOn:
+    id: id_manage_daily_usage_switch
+- tapOn:
+    id: id_saveChanges
+- longPressOn:
+    id: id_manage_daily_usage_switch
+- tapOn:
+    id: id_saveChanges
+- tapOn:
+    id: id_back_button
+- tapOn:
+    id: id_shield_manage_screen_time
+- tapOn:
+    id: id_manage_usage_break_reminder
+- longPressOn:
+    id: break_time_switch
+- tapOn:
+    id: id_kids_usage_confirm
+- tapOn:
+    id: id_back_button
+#Bedtime
+- tapOn: Bedtime Schedule
+- longPressOn:
+    id: kids_usage_bedtime_switch
+- tapOn:
+    id: id_kids_usage_confirm
+- tapOn:
+    id: id_saveChanges
+- tapOn:
+    id: kids_usage_bedtime_switch
+- tapOn:
+    id: id_saveChanges
+  # Daily Reward
+- tapOn:
+    id: id_shield_daily_rewards
+- assertVisible: Daily Rewards
+- tapOn: Daily Rewards
+- assertVisible: |-
+    Lock/Unlock Daily Rewards for Miko3
+    Please note
+    •   
+    Daily rewards allow your child to earn gems for visiting Miko each day. You can turn this feature on or off at any time.
+    •   
+    Turning off daily rewards does not limit access to Miko’s activities. It only pauses gem rewards.
+    - longPressOn: - Failed to click on toggle ON/OFF
+    point: 86%,10%
+- tapOn:
+    id: id_daily_rewards_toggle
+- tapOn:
+    id: id_daily_rewards_confirm
+- tapOn:
+    id: id_back_button
+
+- scrollUntilVisible:
+    element:
+      text: Blogs
+- assertVisible: |-
+    Digital Parenting
+    2 MIN READ  2 weeks ago
+- tapOn:
+    id: id_shield_blog_digital_parenting
+- assertVisible: Digital Parenting
+- tapOn:
+    id: id_back_button
+- assertVisible: |-
+    Child Safety and Moderation
+    3 MIN READ  1 month ago
+- tapOn:
+    id: id_shield_blog_child_safety_and_moderation
+- assertVisible: Child Safety and Moderation
+- tapOn:
+    id: id_back_button
+- scrollUntilVisible:
+    element:
+      text: Can I temporarily block a topic / word and allow it later?
+- tapOn: Can I temporarily block a topic / word and allow it later?
+- tapOn: |-
+    Can I temporarily block a topic / word and allow it later?
+    Yes. Topic and word restrictions can be adjusted at any time. You can block or re-enable them based on your child’s readiness.

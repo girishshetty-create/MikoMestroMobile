@@ -1,0 +1,14 @@
+#Test to Verify the Launch App functionality
+appId: com.miko3.app
+---
+- launchApp:
+    clearState: false
+#Test to verify if user lands on intermediate screen post launching the app
+- assertVisible:
+    id: id_parents_zone
+#Test to verify the Functionality of the "Enter Passcode" When user clicks on the Parentzone
+- tapOn:
+    id: id_parents_zone
+- tapOn:
+    id: id_enter_password
+- inputText: 1111

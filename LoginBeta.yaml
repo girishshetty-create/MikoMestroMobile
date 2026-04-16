@@ -1,0 +1,53 @@
+appId: com.miko3.app
+---
+- launchApp:
+    clearState: true
+- waitForAnimationToEnd
+
+- assertVisible: Enter Parent Email
+
+- doubleTapOn:
+    id: id_enterEmail
+    delay: 100
+
+- inputText: girish.shetty+betaase01@miko.ai
+- waitForAnimationToEnd:
+    timeout: 5000
+- tapOn: Continue
+- tapOn:
+    id: label_otp_input
+- inputText: 333333
+
+- doubleTapOn:
+    id: label_confirm
+    delay: 100
+
+- assertVisible: Let’s Play
+- assertVisible: Parents Zone
+- assertVisible: Video Call to Miko
+
+- doubleTapOn:
+    id: id_lets_play
+    delay: 100
+
+- doubleTapOn:
+    point: 5%,84%
+    optional: true
+
+- doubleTapOn:
+    point: 5%,84%
+    optional: true
+
+- longPressOn:
+    point: 5%,84%
+    optional: true
+
+- longPressOn:
+    point: 5%,84%
+    optional: true
+
+- longPressOn:
+    point: 5%,84%
+    optional: true
+
+- stopApp

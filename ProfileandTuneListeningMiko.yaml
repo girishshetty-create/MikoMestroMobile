@@ -1,0 +1,90 @@
+appId: com.miko3.app
+---
+- launchApp:
+    clearState: false
+- tapOn:
+    id: id_parents_zone
+- tapOn:
+    id: id_enter_password
+- inputText: 1111
+#------------------------Setttings----------------
+- tapOn: #tap on Settings.
+    id: id_top_menu_settings
+- tapOn: #Test to verify the parentprofile by verifying the Email and Mobilenumber
+    id: id_parentProfile
+- tapOn:
+    id: id_manageParentProfile
+- assertVisible: aditya.kamble+apr16@miko.ai
+- assertVisible: '+9180794648484'
+- tapOn:
+    id: id_back_button
+#Test to verify the Data & Privacy Functionality
+- tapOn:
+    id: id_dataPrivacy
+- tapOn:
+    id: id_deleteMyAccount
+- assertVisible: Are you sure you want to delete your account?
+- assertVisible: Deleting your account permanently removes personal data, preferences, and history. You'll lose access to saved content and features. In-app purchases or subscriptions may be forfeited. The process is irreversible, so consider alternatives or contact support for assistance.
+- tapOn: Cancel
+- tapOn:
+    id: id_back_button
+- tapOn:
+    id: id_back_button
+#Sanity Case - Test to verify the Max Subscription present or not and the MAx status
+- tapOn:
+    id: id_mikoMaxSubscription
+- assertVisible: |-
+    Membership Status
+    ACTIVE
+# - assertVisible: |-
+#     Membership Status
+#     IN TRIAL
+- tapOn: #cordinator replaced
+    id: id_back_button
+#Sanity Case - Test to verify Tune listning Miko Power tapping Functionality  and Sub features are viisble or not- Miko Mini
+- tapOn: Tune Miko’s Listening Power
+- assertVisible: |-
+    Hey Miko Sensitivity
+    Adjust sensitivity of 'Hey Miko' detection
+- assertVisible: |-
+    Listening
+    Control how long Miko should keep listening
+- assertVisible: |-
+    Directional Listening
+    Manage Miko's spatial power
+
+#Sanity Case - Test to verify Tune listning Miko Power Functionality - Hey Miko Sensitivity by Saving the changes
+- tapOn:
+    id: id_listening_hey_miko_sensitivity
+- tapOn:
+    id: id_scrollable_bar
+# - tapOn:
+#     id: id_slider_value
+#   text: 100%
+#  index: 1
+#- tapOn: #Scrollable element not found
+- longPressOn:
+    id: id_scrollable_bar #Even with the longpress the scrollbar is not working
+- tapOn: Save Changes
+- tapOn:
+    id: id_back_button
+- tapOn: Tune Miko’s Listening Power
+#Sanity Case - Test to verify Tune listning Miko Power Functionality by Saving the changes - Listening
+- tapOn:
+    id: id_listening_listening
+- tapOn:
+    id: id_scrollable_bar #This Saved the STANDARD to LONG Status by clicking the scrollbar
+- tapOn: Save Changes
+- tapOn:
+    id: id_back_button
+#Sanity Case - Test to verify Tune listning Miko Power Functionality - DOA by turning off and saving the changes
+- tapOn: Tune Miko’s Listening Power
+- tapOn: |-
+    Directional Listening
+    Manage Miko's spatial power
+#Preconditio- keep it default ON
+- tapOn:
+    id: id_off
+- tapOn: Save Changes
+- tapOn:
+    id: id_back_button

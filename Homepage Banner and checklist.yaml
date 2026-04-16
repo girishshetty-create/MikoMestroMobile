@@ -1,0 +1,33 @@
+appId: com.miko3.app
+---
+- launchApp:
+    clearState: false
+#Test to verify all Banners UI and Redirection of the HomeScreen as a Max User
+- tapOn:
+    id: id_parents_zone
+- tapOn:
+    id: id_enter_password
+- inputText: 1111
+#Test to Verify the Banner navigation functionality
+#Note: Can not check  the banners redirection, the moment in banner transition and not able to click on banner as it's frequrnent momment
+#Commenting the script
+# - tapOn:
+#     id: id_banner_item
+# - tapOn:
+#     id: id_back_button
+#Test to verify the checklist functionality by checking 2 options
+#Note: Account is aditya.kamble+23march@miko.ai - IN account -Miko3
+# - tapOn: |- #text used, for Homepage checklist id required
+#     Start a conversation with Miko
+#     Hello Miko, Let's Talk
+#Note: Account is aditya.kamble+apr16@miko.ai - IN account -Miko mini
+- tapOn: |-
+    Start a conversation with Miko
+    Hey Miko, Let's Talk
+- tapOn: |-
+    Fun Stories with Miko
+    Hey Miko, Tell Me a Story
+
+# - tapOn: |-
+#     Play Davinci Games
+#     Hello Miko, Open Da Vinci Kids

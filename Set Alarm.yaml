@@ -1,0 +1,58 @@
+appId: com.miko3.app
+---
+- launchApp:
+    clearState: false
+- tapOn:
+    id: id_parents_zone
+- tapOn:
+    id: id_enter_password
+- inputText: 1111
+#------------------------Setttings----------------
+- tapOn: #tap on Settings. Settings id replaced
+    id: id_top_menu_settings
+#-------------------Set Alarm--------------
+- tapOn:
+    id: id_set_alarm
+- tapOn:
+    id: id_new_alarm
+- assertVisible: New Alarm
+- tapOn:
+    id: id_wakeup_alarm_toggle
+- tapOn:
+    id: id_alarm_done
+
+#--------Set Reminder-----------------
+- tapOn:
+    id: id_back_button
+- tapOn:
+    id: id_set_alarm
+- tapOn:
+    id: id_new_alarm
+# - doubleTapOn: PM - not working , even the line executed it saved AM alarm.
+- tapOn:
+    id: id_alarm_done
+#---------------------Test to verify Delete Alarm functionality---------
+- tapOn:
+    id: id_alarm_item_0
+- tapOn:
+    id: id_delete_alarm
+#--------------Test to verify Update Alarm functionality------------
+- tapOn:
+    id: id_alarm_item_0
+- tapOn:
+    id: id_wakeup_alarm_toggle
+- tapOn:
+    id: id_alarm_done
+#---------------------Test to verify Delete Alarm functionality---------
+- tapOn:
+    id: id_alarm_item_0
+- tapOn:
+    id: id_delete_alarm
+#Test to verify Changes timezone functinality from Alarm
+- tapOn:
+    id: id_change_time_zone
+- tapOn: Search
+- inputText: LosAngeles
+- tapOn:
+    id: id_city_item_0
+- tapOn: Confirm
