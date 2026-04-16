@@ -1,0 +1,8 @@
+How to run
+Open this file in Chrome, Firefox, or Safari.
+Enter your Anthropic API key below.
+Paste your JSON test data in the field.
+Click Load & analyse.
+The agent auto-summarises — then ask anything in the chat.
+Anthropic API key — required to run the agent locally.
+Get one at console.anthropic.com 

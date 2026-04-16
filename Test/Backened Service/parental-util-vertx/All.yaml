@@ -9,7 +9,9 @@ appId: com.miko3.app
     file: "FirsttimeSubUSA.yaml"
     optional: true
 
-
+- runFlow:
+    file: "Child Profile.yaml"
+    optional: true
 
 - runFlow:
     file: "IndiaMax.yaml"
