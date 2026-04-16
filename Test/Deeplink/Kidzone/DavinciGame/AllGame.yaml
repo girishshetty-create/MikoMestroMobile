@@ -1,0 +1,14 @@
+appId: com.miko3.app
+---
+- runFlow:
+    file: "Artwist.yaml"
+    optional: true
+
+- runFlow:
+    file: "CityDUNK.yaml"
+    optional: true
+
+- runFlow:
+    file: "Artmouse.yaml"
+    optional: true
+

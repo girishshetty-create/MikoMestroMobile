@@ -1,0 +1,16 @@
+appId: com.miko3.app
+---
+- launchApp:
+    clearState: false
+
+- openLink: "https://mikoai.app.link/talent_crafty_art"
+
+- waitForAnimationToEnd
+
+
+- tapOn:
+    text: "Open" # Taps the Play Store "Open" button
+    optional: true # Won't fail if Play Store doesn't appear
+
+- assertVisible: CRAFTY ART
+- stopApp

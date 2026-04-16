@@ -1,0 +1,23 @@
+appId: com.miko3.app
+---
+- launchApp:
+    clearState: false
+
+- openLink: "https://mikoai.app.link/talent_happy_crayons"
+
+- waitForAnimationToEnd
+
+- tapOn:
+    text: "Open"
+    optional: true
+
+- waitForAnimationToEnd
+# - takeScreenshot: Happy_Crayons
+- assertScreenshot:
+    path: Happy_Crayons.png
+    thresholdPercentage: 70
+
+- doubleTapOn:
+    point: 6%,10%
+
+- stopApp

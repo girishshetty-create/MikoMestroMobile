@@ -1,0 +1,10 @@
+appId: com.miko3.app
+---
+- launchApp:
+    clearState: false
+#Sanity Case- Test to verify tapping on Parentzone of the Intermediate Screen
+- tapOn:
+    id: id_parents_zone
+- tapOn:
+    id: id_enter_password
+- inputText: 1111

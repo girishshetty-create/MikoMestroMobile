@@ -1,0 +1,23 @@
+appId: com.miko3.app
+---
+- launchApp:
+    clearState: false
+
+- openLink: "https://mikoai.app.link/talent_geometry_warp"
+
+- waitForAnimationToEnd
+
+- tapOn:
+    text: "Open"
+    optional: true
+
+- waitForAnimationToEnd
+# - takeScreenshot: Geometry_Warp
+- assertScreenshot:
+    path: Geometry_Warp.png
+    thresholdPercentage: 70
+
+- doubleTapOn:
+    point: 6%,10%
+
+- stopApp

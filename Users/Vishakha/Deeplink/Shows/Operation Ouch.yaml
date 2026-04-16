@@ -1,0 +1,26 @@
+appId: com.miko3.app
+---
+- launchApp:
+    clearState: false
+
+- openLink: https://mikoai.app.link/talent_operation_ouch_try_this_at_home
+
+- waitForAnimationToEnd
+
+- tapOn:
+    text: "Open" # Taps the Play Store "Open" button
+    optional: true # Won't fail if Play Store doesn't appear
+
+- waitForAnimationToEnd
+- assertVisible: OPERATION OUCH! - DO TRY THIS AT HOME
+
+# - takeScreenshot: operation-ouch
+# - assertScreenshot:
+#     path: operation-ouch.png
+#     thresholdPercentage: 50
+
+- doubleTapOn:
+    point: 6%,10%
+
+#- assertVisible: PLAY
+- stopApp

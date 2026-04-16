@@ -1,0 +1,24 @@
+appId: com.miko3.app
+---
+- launchApp:
+    clearState: false
+- openLink: https://mikoai.app.link/talent_science_max
+- waitForAnimationToEnd
+
+- tapOn:
+    text: "Open" # Taps the Play Store "Open" button
+    optional: true # Won't fail if Play Store doesn't appear
+
+- waitForAnimationToEnd
+- assertVisible: SCIENCE MAX - SEASON 1
+
+# - takeScreenshot: science_max
+# - assertScreenshot:
+#     path: science_max.png
+#     thresholdPercentage: 50
+
+- doubleTapOn:
+    point: 6%,10%
+
+#- assertVisible: PLAY
+- stopApp

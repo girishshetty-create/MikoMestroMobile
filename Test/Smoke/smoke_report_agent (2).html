@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smoke Report Agent</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#ffffff;--bg2:#f5f5f3;--bg3:#eeecea;
+  --txt:#1a1a18;--txt2:#6b6b67;--txt3:#9a9a94;
+  --bd:rgba(0,0,0,0.12);--bd2:rgba(0,0,0,0.22);
+  --info-bg:#E6F1FB;--info-txt:#185FA5;--info-bd:#378ADD;
+  --pass-bg:#EAF3DE;--pass-txt:#3B6D11;
+  --fail-bg:#FCEBEB;--fail-txt:#A32D2D;
+  --pass-val:#1D9E75;--fail-val:#E24B4A;
+  --r:8px;--rl:12px;
+  --font:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --mono:'Menlo','Monaco','Courier New',monospace;
+}
+@media(prefers-color-scheme:dark){
+  :root{
+    --bg:#1e1e1c;--bg2:#2a2a28;--bg3:#333330;
+    --txt:#f0efe8;--txt2:#9a9a94;--txt3:#6b6b67;
+    --bd:rgba(255,255,255,0.1);--bd2:rgba(255,255,255,0.2);
+    --info-bg:#0c447c;--info-txt:#85b7eb;
+    --pass-bg:#173404;--pass-txt:#97C459;
+    --fail-bg:#501313;--fail-txt:#F09595;
+  }
+}
+body{font-family:var(--font);background:var(--bg);color:var(--txt);min-height:100vh;}
+.layout{display:flex;height:100vh;overflow:hidden;}
+
+.sidebar{width:300px;min-width:260px;border-right:0.5px solid var(--bd);display:flex;flex-direction:column;padding:1.25rem;overflow-y:auto;gap:.75rem;}
+.sidebar h2{font-size:15px;font-weight:500;}
+.label{font-size:11px;font-weight:500;color:var(--txt2);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px;}
+textarea{width:100%;min-height:120px;font-size:11px;font-family:var(--mono);resize:vertical;border:0.5px solid var(--bd2);border-radius:var(--r);padding:8px;background:var(--bg2);color:var(--txt);outline:none;line-height:1.5;}
+textarea:focus{border-color:var(--txt3);}
+.btn-row{display:flex;gap:6px;flex-wrap:wrap;}
+button{font-size:12px;padding:5px 12px;border-radius:var(--r);border:0.5px solid var(--bd2);background:var(--bg);color:var(--txt);cursor:pointer;white-space:nowrap;}
+button:hover{background:var(--bg2);}
+button:active{transform:scale(.98);}
+button.primary{background:var(--info-bg);color:var(--info-txt);border-color:var(--info-bd);}
+.metrics{display:grid;grid-template-columns:1fr 1fr;gap:6px;}
+.metric{background:var(--bg2);border-radius:var(--r);padding:.6rem .75rem;}
+.metric-label{font-size:10px;color:var(--txt2);margin-bottom:2px;}
+.metric-val{font-size:18px;font-weight:500;}
+.fail-list{display:flex;flex-direction:column;gap:4px;}
+.fail-item{font-size:11px;background:var(--fail-bg);color:var(--fail-txt);border-radius:var(--r);padding:5px 8px;line-height:1.4;}
+.divider{height:0.5px;background:var(--bd);}
+.howto{background:var(--bg2);border-radius:var(--r);padding:.75rem 1rem;font-size:12px;color:var(--txt2);line-height:1.7;}
+.howto b{color:var(--txt);font-weight:500;}
+.howto ol{padding-left:1.1rem;margin-top:.4rem;}
+.howto li{margin-bottom:2px;}
+.tag{font-size:10px;padding:1px 5px;border-radius:4px;background:var(--bg3);color:var(--txt2);}
+.hidden{display:none;}
+
+.main{flex:1;display:flex;flex-direction:column;overflow:hidden;}
+.topbar{padding:.75rem 1.25rem;border-bottom:0.5px solid var(--bd);display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.topbar-title{font-size:13px;font-weight:500;color:var(--txt2);margin-right:auto;}
+.quick-btn{font-size:11px;padding:3px 10px;border-radius:999px;}
+.chat-area{flex:1;overflow-y:auto;padding:1.25rem;display:flex;flex-direction:column;gap:10px;}
+.msg{max-width:85%;font-size:13px;line-height:1.65;padding:10px 14px;border-radius:var(--rl);white-space:pre-wrap;word-break:break-word;}
+.msg.user{align-self:flex-end;background:var(--info-bg);color:var(--info-txt);border-radius:var(--rl) var(--rl) 4px var(--rl);}
+.msg.agent{align-self:flex-start;background:var(--bg2);color:var(--txt);border-radius:var(--rl) var(--rl) var(--rl) 4px;}
+.msg.thinking{color:var(--txt2);font-style:italic;}
+.input-bar{padding:.75rem 1.25rem;border-top:0.5px solid var(--bd);display:flex;gap:8px;}
+.input-bar input{flex:1;font-size:13px;padding:8px 12px;border:0.5px solid var(--bd2);border-radius:var(--r);background:var(--bg2);color:var(--txt);outline:none;}
+.input-bar input:focus{border-color:var(--txt3);}
+.empty-state{display:flex;flex-direction:column;align-items:center;justify-content:center;flex:1;color:var(--txt2);font-size:13px;gap:8px;text-align:center;padding:2rem;line-height:1.6;}
+
+.api-setup{background:var(--bg2);border-radius:var(--r);padding:.75rem 1rem;font-size:12px;color:var(--txt2);line-height:1.6;}
+.api-setup b{color:var(--txt);font-weight:500;}
+.api-setup input{width:100%;margin-top:6px;font-size:12px;padding:6px 10px;border:0.5px solid var(--bd2);border-radius:var(--r);background:var(--bg);color:var(--txt);outline:none;font-family:var(--mono);}
+</style>
+</head>
+<body>
+<div class="layout">
+
+  <div class="sidebar">
+    <h2>Smoke report agent</h2>
+
+    <div class="howto">
+      <b>How to run</b>
+      <ol>
+        <li>Open this file in <b>Chrome</b>, <b>Firefox</b>, or <b>Safari</b>.</li>
+        <li>Enter your <b>Anthropic API key</b> below.</li>
+        <li>Paste your <b>JSON test data</b> in the field.</li>
+        <li>Click <b>Load &amp; analyse</b>.</li>
+        <li>The agent auto-summarises — then <b>ask anything</b> in the chat.</li>
+      </ol>
+    </div>
+
+    <div class="api-setup">
+      <b>Anthropic API key</b> — required to run the agent locally.<br>
+      Get one at <a href="https://console.anthropic.com" target="_blank" style="color:var(--info-txt);">console.anthropic.com</a>
+      <input type="password" id="api-key" placeholder="sk-ant-..." autocomplete="off"/>
+    </div>
+
+    <div>
+      <div class="label">Raw test data (JSON array)</div>
+      <textarea id="raw-input" placeholder='[{"file_name":"LoginBeta","assert_name":"Enter Parent Email is visible","visibility":true}, ...]'></textarea>
+      <div class="btn-row" style="margin-top:8px;">
+        <button class="primary" onclick="loadData()">Load &amp; analyse</button>
+        <button onclick="loadSample()">Load sample</button>
+      </div>
+    </div>
+
+    <div id="stats-section" class="hidden">
+      <div class="divider"></div>
+      <div class="label">Run summary</div>
+      <div class="metrics" id="metrics"></div>
+      <div id="fail-section" class="hidden" style="margin-top:.75rem;">
+        <div class="label">Failures</div>
+        <div class="fail-list" id="fail-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="topbar">
+      <span class="topbar-title" id="topbar-title">No data loaded</span>
+      <div id="quick-btns" style="display:flex;gap:6px;flex-wrap:wrap;"></div>
+    </div>
+    <div class="chat-area" id="chat-area">
+      <div class="empty-state" id="empty-state">
+        Paste your JSON test data on the left<br>and click <b>Load &amp; analyse</b> to start.
+      </div>
+    </div>
+    <div class="input-bar">
+      <input id="chat-input" type="text" placeholder="Ask anything about this report..." onkeydown="if(event.key==='Enter')sendMsg()"/>
+      <button class="primary" onclick="sendMsg()">Send</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+let reportData=[];
+let chatHistory=[];
+
+const SAMPLE=[
+  {file_name:"LoginBeta",assert_name:"Enter Parent Email is visible",visibility:true},
+  {file_name:"LoginBeta",assert_name:"Let's Play is visible",visibility:true},
+  {file_name:"LoginBeta",assert_name:"Parents Zone is visible",visibility:true},
+  {file_name:"LoginBeta",assert_name:"Video Call to Miko is visible",visibility:true},
+  {file_name:"Child Profile",assert_name:"id_parental_control_child_profile is visible",visibility:true},
+  {file_name:"Child Profile",assert_name:"Save is visible",visibility:true},
+  {file_name:"CityDUNK",assert_name:"City DUNK is visible",visibility:true},
+  {file_name:"Intermediate",assert_name:"Let's Play is visible",visibility:true},
+  {file_name:"Intermediate",assert_name:"Your Favorites is visible",visibility:true},
+  {file_name:"mikonnect",assert_name:"All Calls is visible",visibility:true},
+  {file_name:"mikonnect",assert_name:"Video call Miko is visible",visibility:true},
+  {file_name:"mikonnect",assert_name:"Your child's Miko is visible",visibility:true},
+  {file_name:"Story Maker",assert_name:"Authored Stories is visible",visibility:false,error:"Assertion is false: Authored Stories is visible"},
+  {file_name:"Subcription",assert_name:"id_top_menu_settings is visible",visibility:true},
+  {file_name:"Subcription",assert_name:"Manage Max subscription is visible",visibility:true},
+  {file_name:"Subcription",assert_name:"Change subscription plan is visible",visibility:true},
+  {file_name:"Subcription",assert_name:"Cancel Subscription is visible",visibility:true},
+  {file_name:"Subcription",assert_name:"Proceed to cancel is visible",visibility:true},
+  {file_name:"Subcription",assert_name:"We're sad to see you go! is visible",visibility:true},
+  {file_name:"Subcription",assert_name:"Continue is visible",visibility:true},
+];
+
+function generate(data){
+  return data.map(item=>({
+    Module:item.file_name,
+    AssertName:item.assert_name,
+    Visibility:item.visibility,
+    Status:item.visibility?"PASS":"FAIL",
+    Comment:item.visibility?"Assertion successful":(item.error||"Assertion failed")
+  }));
+}
+
+function loadSample(){
+  document.getElementById("raw-input").value=JSON.stringify(SAMPLE,null,2);
+}
+
+function loadData(){
+  const raw=document.getElementById("raw-input").value.trim();
+  if(!raw){alert("Please paste raw data first.");return;}
+  let parsed;
+  try{parsed=JSON.parse(raw);}catch(e){alert("Invalid JSON.\n"+e.message);return;}
+  if(!Array.isArray(parsed)||parsed.length===0){alert("Expected a non-empty JSON array.");return;}
+  reportData=generate(parsed);
+  chatHistory=[];
+  renderSidebar();
+  renderQuickBtns();
+  const area=document.getElementById("chat-area");
+  area.innerHTML="";
+  autoAnalyse();
+}
+
+function renderSidebar(){
+  const total=reportData.length;
+  const passes=reportData.filter(r=>r.Status==="PASS").length;
+  const fails=reportData.filter(r=>r.Status==="FAIL").length;
+  const rate=Math.round(passes/total*100);
+  document.getElementById("stats-section").classList.remove("hidden");
+  document.getElementById("metrics").innerHTML=`
+    <div class="metric"><div class="metric-label">Total</div><div class="metric-val">${total}</div></div>
+    <div class="metric"><div class="metric-label">Pass rate</div><div class="metric-val" style="color:${rate>=90?"var(--pass-val)":"var(--fail-val)"}">${rate}%</div></div>
+    <div class="metric"><div class="metric-label">Passed</div><div class="metric-val" style="color:var(--pass-val)">${passes}</div></div>
+    <div class="metric"><div class="metric-label">Failed</div><div class="metric-val" style="color:var(--fail-val)">${fails}</div></div>
+  `;
+  const failRows=reportData.filter(r=>r.Status==="FAIL");
+  const fs=document.getElementById("fail-section");
+  if(failRows.length>0){
+    fs.classList.remove("hidden");
+    document.getElementById("fail-list").innerHTML=failRows.map(r=>`
+      <div class="fail-item"><span class="tag">${r.Module}</span> ${r.AssertName}</div>
+    `).join("");
+  } else {
+    fs.classList.add("hidden");
+  }
+  const modules=[...new Set(reportData.map(r=>r.Module))];
+  document.getElementById("topbar-title").textContent=`${modules.length} modules · ${total} assertions`;
+}
+
+function renderQuickBtns(){
+  const qs=["Summarise run","List failures","Generate bug report","What to investigate first?","Modules fully passing?"];
+  document.getElementById("quick-btns").innerHTML=qs.map(q=>`<button class="quick-btn" onclick="askQuestion(${JSON.stringify(q)})">${q}</button>`).join("");
+}
+
+function appendMsg(role,text,thinking=false){
+  const area=document.getElementById("chat-area");
+  const div=document.createElement("div");
+  div.className=`msg ${role}${thinking?" thinking":""}`;
+  div.textContent=text;
+  area.appendChild(div);
+  area.scrollTop=area.scrollHeight;
+  return div;
+}
+
+function buildSystemPrompt(){
+  const fails=reportData.filter(r=>r.Status==="FAIL");
+  const modules=[...new Set(reportData.map(r=>r.Module))];
+  const passRate=Math.round(reportData.filter(r=>r.Status==="PASS").length/reportData.length*100);
+  return `You are a QA analyst assistant analysing a mobile app smoke test report.
+
+REPORT SUMMARY:
+- Total assertions: ${reportData.length}
+- Passed: ${reportData.filter(r=>r.Status==="PASS").length}
+- Failed: ${fails.length}
+- Pass rate: ${passRate}%
+- Modules tested: ${modules.join(", ")}
+
+FULL REPORT (JSON):
+${JSON.stringify(reportData,null,2)}
+
+Guidelines:
+- Be concise and direct.
+- For failures, always mention: module name, assertion, error message, and a suggested next step.
+- For bug reports use format: Module | Assertion | Error | Suggested investigation.
+- For summaries, lead with overall health (pass rate), then call out failures.
+- Keep responses under 200 words unless a detailed bug report is requested.`;
+}
+
+async function callClaude(userMsg){
+  const apiKey=document.getElementById("api-key").value.trim();
+  if(!apiKey){
+    appendMsg("agent","Please enter your Anthropic API key in the sidebar to use the agent.");
+    chatHistory.pop();
+    return;
+  }
+  chatHistory.push({role:"user",content:userMsg});
+  const thinkingEl=appendMsg("agent","Thinking...",true);
+  try{
+    const res=await fetch("https://api.anthropic.com/v1/messages",{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json",
+        "x-api-key":apiKey,
+        "anthropic-version":"2023-06-01",
+        "anthropic-dangerous-direct-browser-access":"true"
+      },
+      body:JSON.stringify({
+        model:"claude-sonnet-4-20250514",
+        max_tokens:1000,
+        system:buildSystemPrompt(),
+        messages:chatHistory
+      })
+    });
+    const data=await res.json();
+    if(data.error){
+      thinkingEl.remove();
+      appendMsg("agent","API error: "+data.error.message);
+      chatHistory.pop();
+      return;
+    }
+    const reply=data.content?.map(b=>b.text||"").join("")||"No response.";
+    thinkingEl.remove();
+    appendMsg("agent",reply);
+    chatHistory.push({role:"assistant",content:reply});
+  }catch(e){
+    thinkingEl.remove();
+    appendMsg("agent","Network error: "+e.message);
+    chatHistory.pop();
+  }
+}
+
+async function autoAnalyse(){
+  await callClaude("Briefly summarise this smoke test run: overall health, failures if any, and the top concern.");
+}
+
+function askQuestion(q){
+  appendMsg("user",q);
+  callClaude(q);
+}
+
+function sendMsg(){
+  const input=document.getElementById("chat-input");
+  const val=input.value.trim();
+  if(!val)return;
+  if(reportData.length===0){alert("Please load data first.");return;}
+  input.value="";
+  appendMsg("user",val);
+  callClaude(val);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+appId: com.miko3.app
+---
+- launchApp:
+    clearState: false
+#Sanity Case- Test to verify tapping on Parentzone of the Intermediate Screen
+- tapOn:
+    id: id_parents_zone
+- tapOn:
+    id: id_enter_password
+- inputText: 1111
+  #Share this app
+- scrollUntilVisible:
+    element:
+      id: id_home_widget_7
+#Share now
+# - tapOn: Share now
+# - longPressOn:
+#     id: id_share_with_friends_card
+- tapOn: |-
+    Share this app
+    Share now
+# - swipe:
+#     from:
+#       id: drag
+#     direction: DOWN
+#Need Help
+# - tapOn: Ask now
+- tapOn:
+    id: id_need_help_card
+- tapOn:
+    id: id_back_button
+#Rate us - flow executed successfully but not executed on app
+- tapOn:
+    id: id_home_widget_6
+#Rate us - flow executed successfully but not executed on app
+# - tapOn: |-
+#     Loving our app? Rate us!
+#     Rate us
+# - tapOn: Open
+# Opened the report tab
+# - tapOn: |-
+#     Loving our app? Rate us!
+#     Rate us
+# - tapOn:
+#     point: 51%,24%
+

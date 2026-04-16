@@ -1,0 +1,23 @@
+appId: com.miko3.app
+---
+- launchApp:
+    clearState: false
+
+- openLink: "https://mikoai.app.link/talent_locksmath"
+
+- waitForAnimationToEnd
+
+- tapOn:
+    text: "Open"
+    optional: true
+
+- waitForAnimationToEnd
+# - takeScreenshot: Locksmath
+- assertScreenshot:
+    path: Locksmath.png
+    thresholdPercentage: 70
+
+- doubleTapOn:
+    point: 6%,10%
+
+- stopApp

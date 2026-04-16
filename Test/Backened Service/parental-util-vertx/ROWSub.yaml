@@ -1,0 +1,66 @@
+# Always unmax girish.shetty+betaasy01@miko.ai app
+
+appId: com.miko3.app
+---
+- launchApp:
+    clearState: false
+- waitForAnimationToEnd
+
+- assertVisible: Enter Parent Email
+
+- doubleTapOn:
+    id: id_enterEmail
+    delay: 100
+
+- inputText: girish.shetty+betaspai03@miko.ai
+- waitForAnimationToEnd:
+    timeout: 5000
+- tapOn: Continue
+- tapOn:
+    id: label_otp_input
+- inputText: 333333
+
+- doubleTapOn:
+    id: label_confirm
+    delay: 100
+
+- doubleTapOn:
+    id: id_parents_zone
+    delay: 100
+
+- tapOn: "0"
+- tapOn: "0"
+- tapOn: "0"
+- tapOn: "0"
+
+- assertVisible:
+    id: id_bottom_nav_max
+
+- doubleTapOn:
+    id: id_bottom_nav_max
+    delay: 100
+
+- doubleTapOn: Activate MAX
+
+- scrollUntilVisible:
+    element:
+      text: Choose a plan
+
+- assertVisible: |-
+    Yearly
+    USD 180  
+    USD 99
+    effective 8.25/month
+    Save 45%
+    Most Popular
+
+- tapOn: |-
+    Monthly
+    USD 15
+    effective 15.00/month
+
+- doubleTapOn: Subscribe Max Now
+- doubleTapOn: Continue
+- assertVisible: You have MAX-ed up!
+- assertVisible: Continue
+- tapOn: Continue

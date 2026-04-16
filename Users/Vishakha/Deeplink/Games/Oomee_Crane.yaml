@@ -1,0 +1,22 @@
+appId: com.miko3.app
+---
+- launchApp:
+    clearState: false
+
+- openLink: https://mikoai.app.link/talent_oomee_crane
+
+- waitForAnimationToEnd
+
+- tapOn:
+    text: "Open"
+    optional: true
+
+- waitForAnimationToEnd
+# - takeScreenshot: Oomee_Crane
+- assertScreenshot:
+    path: Oomee_Crane.png
+    thresholdPercentage: 70
+- doubleTapOn:
+    point: 6%,10%
+
+- stopApp

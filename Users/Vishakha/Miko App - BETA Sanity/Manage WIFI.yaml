@@ -1,0 +1,19 @@
+appId: com.miko3.app
+---
+- launchApp:
+    clearState: true
+- tapOn:
+    id: id_parents_zone
+- tapOn:
+    id: id_enter_password
+- inputText: 1111
+#------------------------Setttings----------------
+- tapOn: #tap on Settings. Settings id replaced
+    id: id_top_menu_settings
+    #Sanity Case - Test to Verify the Manage WIFI Functionality
+- tapOn:
+    id: id_manage_wifi
+- tapOn: Proceed to Wi-Fi setup
+- tapOn: Cancel
+- tapOn:
+    id: id_back_button

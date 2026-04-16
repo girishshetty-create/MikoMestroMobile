@@ -1,0 +1,39 @@
+appId: com.miko3.app
+---
+- launchApp:
+    clearState: false
+- tapOn:
+    id: id_parents_zone
+- tapOn:
+    id: id_enter_password
+- inputText: 1111
+#------------------------Setttings----------------
+- tapOn: #tap on Settings. Settings id replaced
+    id: id_top_menu_settings
+#-------------------Set Alarm--------------
+- tapOn:
+    id: id_set_alarm
+- tapOn:
+    id: id_new_alarm
+- tapOn:
+    id: id_wakeup_alarm_toggle
+- tapOn:
+    id: id_alarm_done
+#--------Set Reminder-----------------
+- tapOn:
+    id: id_new_alarm
+# - doubleTapOn: PM - not working , even the line executed it saved AM alarm.
+- tapOn:
+    id: id_alarm_done
+#---------------------Delete Alarm---------
+- tapOn:
+    id: id_alarm_item_0
+- tapOn:
+    id: id_delete_alarm
+#--------------Update Alarm------------
+- tapOn:
+    id: id_alarm_item_0
+- tapOn:
+    id: id_wakeup_alarm_toggle
+- tapOn:
+    id: id_alarm_done

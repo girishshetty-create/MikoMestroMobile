@@ -1,0 +1,15 @@
+appId: com.miko3.app
+---
+- launchApp:
+    clearState: false
+
+- openLink: "https://mikoai.app.link/talent_1_min_in_a_museum"
+
+- waitForAnimationToEnd
+
+- tapOn:
+    text: "Open" # Taps the Play Store "Open" button
+    optional: true # Won't fail if Play Store doesn't appear
+
+- assertVisible: 1 MINUTE IN A MUSEUM - SEASON 2
+- stopApp

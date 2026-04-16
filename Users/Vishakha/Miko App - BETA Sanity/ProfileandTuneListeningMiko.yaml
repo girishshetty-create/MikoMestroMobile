@@ -1,0 +1,66 @@
+appId: com.miko3.app
+---
+- launchApp:
+    clearState: false
+- tapOn:
+    id: id_parents_zone
+- tapOn:
+    id: id_enter_password
+- inputText: 1111
+#------------------------Setttings----------------
+- tapOn: #tap on Settings. Settings id replaced
+    id: id_top_menu_settings
+- tapOn: #Tap on Email id and name
+    id: id_parentProfile
+- tapOn: #Tap on Parent Profile
+    id: id_manageParentProfile
+- tapOn:
+    id: id_back_button
+- tapOn:
+    id: id_back_button
+#Sanity Case - Test to verify the Max Subscription present or not
+- tapOn:
+    id: id_mikoMaxSubscription
+# - assertVisible: |-
+#     Membership Status
+#     ACTIVE
+- assertVisible: |-
+    Membership Status
+    IN TRIAL
+- tapOn: #cordinator replaced
+    id: id_back_button
+#Sanity Case - Test to verify Tune listning Miko Power Functionality - Miko Mini
+- tapOn: Tune Miko’s Listening Power
+#Sanity Case - Test to verify Tune listning Miko Power Functionality - Hey Miko Sensitivity
+- tapOn:
+    id: id_listening_hey_miko_sensitivity
+# - tapOn:
+#     id: id_slider_value
+#   text: 100%
+#  index: 1
+#- tapOn: #Scrollable element not found
+- longPressOn:
+    id: id_scrollable_bar
+- tapOn: Save Changes
+- tapOn:
+    id: id_back_button
+- tapOn: Tune Miko’s Listening Power
+#Sanity Case - Test to verify Tune listning Miko Power Functionality - Listening
+- tapOn:
+    id: id_listening_listening
+# - tapOn:
+#     text: 100%
+#     index: 1
+- tapOn: Save Changes
+- tapOn:
+    id: id_back_button
+#Sanity Case - Test to verify Tune listning Miko Power Functionality - DOA
+- tapOn: Tune Miko’s Listening Power
+- tapOn: |-
+    Directional Listening
+    Manage Miko's spatial power
+- tapOn:
+    id: id_off
+- tapOn: Save Changes
+- tapOn:
+    id: id_back_button
