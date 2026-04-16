@@ -1,3 +1,11 @@
+# ============================================================
+# PAGE MODULE: ChildProfilePage
+# Covers Child Profile screen — view and edit child name
+# =========================================================
+
+
+
+
 appId: com.miko3.app
 ---
 - launchApp:
